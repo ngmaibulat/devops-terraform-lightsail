@@ -7,7 +7,7 @@ resource "aws_lightsail_instance" "web01" {
 
   key_pair_name = "id_ed25519"
 
-  user_data = "sudo apt update && sudo apt install -y python-is-python3 && sudo npm install -g typescript"
+  user_data = file("${path.module}/scripts/setup.sh")
 
   tags = {
     foo = "bar"
